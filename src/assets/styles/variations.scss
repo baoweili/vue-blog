@@ -1,0 +1,17 @@
+$borderColor: #f8f8f8;
+$defaultFontColor: #555;
+$leftWidth: 70%;
+$rightWidth: 26%;
+$hoverFontColor: #409eff;
+$hoverBackColor: #ecf5ff;
+
+.left-right-container {
+  display: flex;
+  justify-content: space-between;
+  .left {
+    width: $leftWidth;
+  }
+  .right {
+    width: $rightWidth;
+  }
+}
