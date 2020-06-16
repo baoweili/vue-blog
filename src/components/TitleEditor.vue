@@ -4,7 +4,7 @@
     <el-input
       v-model="editorCnt"
       type="textarea"
-      :rows="10"
+      :rows="15"
       class="editor"
       @change="handleChangeEditorContent"
     ></el-input>
