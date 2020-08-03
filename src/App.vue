@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <button class="app-btn" @click="handleClick">点击</button>
     <router-view></router-view>
   </div>
 </template>
@@ -12,14 +13,14 @@ export default {
     saveState() {
       this.$store.dispatch('initUserRole', '');
       sessionStorage.setItem('store_state', JSON.stringify(this.$store.state))
+    },
+    handleClick() {
+      console.log('click');
+      window.dataLayer.push({
+        'event': 'click',
+        'msg': '点击了一个按钮'
+      })
     }
-  },
-  created() {
-    window.dataLayer.push({
-      msg: 'this is app view',
-      name: 'lbw',
-      age: 18
-    });
   },
   mounted() {
     window.addEventListener('unload', this.saveState);
