@@ -14,6 +14,13 @@ export default {
       sessionStorage.setItem('store_state', JSON.stringify(this.$store.state))
     }
   },
+  created() {
+    window.dataLayer.push({
+      msg: 'this is app view',
+      name: 'lbw',
+      age: 18
+    });
+  },
   mounted() {
     window.addEventListener('unload', this.saveState);
   }
