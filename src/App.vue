@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <button class="app-btn" @click="handleClick">点击</button>
+    <button class="app-btn" @click="handleClick">支付</button>
     <router-view></router-view>
   </div>
 </template>
@@ -15,10 +15,13 @@ export default {
       sessionStorage.setItem('store_state', JSON.stringify(this.$store.state))
     },
     handleClick() {
-      console.log('click');
+      const paymentType = ['游戏币支付', '其他渠道'];
       window.dataLayer.push({
-        'event': 'click',
-        'msg': '点击了一个按钮'
+        event: 'UC_CHECKOUT',
+        paymentType: paymentType[Math.floor(Math.random() * paymentType.length)],
+        paymentId: Math.floor(Math.random() * 1000),
+        price: Math.floor(Math.random() * 10000),
+        productId: Math.floor(Math.random() * 1000),
       })
     }
   },
